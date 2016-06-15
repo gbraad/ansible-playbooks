@@ -9,8 +9,43 @@ Instructions
 
       ```
       curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/install-c9sdk.yml -o install-c9sdk.yml
+      ```
+      
+      ```
+      ./install-c9sdk.yml
+      ```
+      or
+      ```
       ansible-playbook install-c9sdk.yml
       ```
+
+
+Requirements
+------------
+
+You need to have Ansible > 2.0 installed.
+
+
+### Ubuntu
+```
+$ apt-get install ansible
+```
+or
+```
+$ apt-get install python-pip
+$ pip install ansible
+```
+
+
+### CentOS / Fedora
+```
+$ yum install ansible
+```
+or
+```
+$ yum install python-pip
+$ pip install ansible
+```
 
 
 Authors
