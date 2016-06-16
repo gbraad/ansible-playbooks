@@ -33,7 +33,7 @@ $ apt-get install ansible
 or
 ```
 $ apt-get install python-pip
-$ pip install ansible
+$ pip install -U ansible
 ```
 
 
@@ -44,7 +44,7 @@ $ yum install ansible
 or
 ```
 $ yum install python-pip
-$ pip install ansible
+$ pip install -U ansible
 ```
 
 

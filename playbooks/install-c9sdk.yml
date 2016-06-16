@@ -1,6 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
 - hosts: localhost
+  #remote_user: root
   become: yes
   become_method: sudo
 
@@ -17,7 +18,7 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   
   - name: Install Glibc
-    yum: name=glibc-static state=installed
+    package: name="glibc-static" state=installed
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
  
   - name: Install tmux
