@@ -20,6 +20,10 @@
   - name: Install Glibc
     package: name="glibc-static" state=installed
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
+
+  - name: Install C++
+    package: name="gcc-c++" state=installed
+    when: ansible_distribution == 'Fedora'
  
   - name: Install tmux
     package: name=tmux state=installed
