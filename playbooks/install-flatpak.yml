@@ -1,0 +1,15 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+
+  tasks:
+  - name: Install 'flatpak'
+    package: name=flatpak state=installed
+    become: yes
+    become_method: sudo
+
+  - name: Add remote 'gnome'
+    command: flatpak remote-add --gpg-import=gnome-sdk.gpg gnome https://sdk.gnome.org/repo/
+
+  - name: Add remote 'gnome-apps'
+    command: flatpak remote-add --gpg-import=gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/
