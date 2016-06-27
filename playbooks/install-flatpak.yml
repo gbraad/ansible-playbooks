@@ -16,3 +16,6 @@
 
   - name: Add remote 'gnome-apps'
     command: flatpak remote-add --gpg-import=/tmp/gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/
+    
+  - name: Add 'gedit' from 'gnome-apps'
+    command: flatpak install gnome-apps org.gnome.gedit
