@@ -8,8 +8,11 @@
     become: yes
     become_method: sudo
 
+  - name: Download 'gnome-sdk' key file
+    get_url: url=https://sdk.gnome.org/keys/gnome-sdk.gpg dest=/tmp/gnome-sdk.gpg
+
   - name: Add remote 'gnome'
-    command: flatpak remote-add --gpg-import=gnome-sdk.gpg gnome https://sdk.gnome.org/repo/
+    command: flatpak remote-add --gpg-import=/tmp/gnome-sdk.gpg gnome https://sdk.gnome.org/repo/
 
   - name: Add remote 'gnome-apps'
-    command: flatpak remote-add --gpg-import=gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/
+    command: flatpak remote-add --gpg-import=/tmp/gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/
