@@ -16,6 +16,12 @@
 
   - name: Add remote 'gnome-apps'
     command: flatpak remote-add --gpg-import=/tmp/gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/
-    
-  - name: Add 'gedit' from 'gnome-apps'
-    command: flatpak install gnome-apps org.gnome.gedit
+
+  - name: From 'gnome' add '3.20 runtime'
+    command: flatpak install gnome org.gnome.Platform 3.20
+
+  - name: From 'gnome-apps' add 'gedit'
+    command: flatpak install gnome-apps org.gnome.gedit stable
+
+#  - name: Run 'gedit'
+#    command: flatpak run org.gnome.gedit
