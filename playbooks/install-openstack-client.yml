@@ -1,0 +1,15 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  #remote_user: root
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Add 'Mitaka' release package (RedHat)
+    package: name="centos-release-openstack-mitaka" state=present
+    when: >
+        ansible_os_family == 'RedHat'
+
+  - name: Install 'openstackclient'
+    package: name=python-openstackclient state=installed
