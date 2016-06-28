@@ -13,3 +13,6 @@
 
   - name: Install 'openstackclient'
     package: name=python-openstackclient state=installed
+
+  - name: Install 'stack' helper tool
+    get_url: url=https://raw.githubusercontent.com/gbraad/openstack-tools/master/stack dest=/sbin/stack mode=0755
