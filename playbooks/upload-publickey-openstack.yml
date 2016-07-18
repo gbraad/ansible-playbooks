@@ -1,0 +1,14 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+
+  tasks:
+  - name: Upload public key to OpenStack cloud providers 
+    os_keypair:
+      cloud: "{{ item }}"
+      name: gbraad
+      public_key_file: ~/.ssh/id_rsa.pub
+    with_items:
+    - trystack
+    - dreamhost
+    - ustack
