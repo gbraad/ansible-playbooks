@@ -6,10 +6,10 @@
   become_method: sudo
 
   tasks:
-  - name: Add 'Mitaka' release package (RedHat)
+  - name: Add 'Mitaka' release package (CentOS)
     package: name="centos-release-openstack-mitaka" state=present
     when: >
-        ansible_os_family == 'RedHat'
+        ansible_distribution == 'CentOS'
 
   - name: Install 'openstackclient'
     package: name=python-openstackclient state=installed
