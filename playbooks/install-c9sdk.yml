@@ -2,41 +2,41 @@
 ---
 - hosts: localhost
   #remote_user: root
+  become_method: sudo
 
   tasks:
   - name: Install Git
     package: name=git state=installed
     become: yes
-    become_method: sudo
 
   - name: install the 'Development tools' package group
     package: name="@Development tools" state=present
     when:  ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
     become: yes
-    become_method: sudo
     
   - name: Install the 'build-essential' meta package
     package: name="build-essential" state=present
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     become: yes
-    become_method: sudo
     
   - name: Install Glibc
     package: name="glibc-static" state=installed
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'Fedora'
     become: yes
-    become_method: sudo
 
   - name: Install C++
     package: name="gcc-c++" state=installed
     when: ansible_distribution == 'Fedora'
     become: yes
-    become_method: sudo
  
   - name: Install tmux
     package: name=tmux state=installed
     become: yes
     become_method: sudo
+
+  - name: Create directory
+    file: path=/opt/c9sdk state=directory owner={{ansible_user_id}}
+    become: yes
 
   - name: Clone c9
     git: repo=https://github.com/c9/core.git dest=/opt/c9sdk
