@@ -1,0 +1,17 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  #remote_user: root
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Add group 'docker'
+    group: name="docker" state=present
+
+  - name: Add 'ansible_user_id' to group 'docker'
+    user: name={{ansible_user_id}} groups=docker append=yes
+
+  - name: Enable Docker socket for group 'docker'
+    file: path=/var/run/docker.sock state=touch group=docker
+
