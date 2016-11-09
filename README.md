@@ -39,7 +39,7 @@ $ pip install -U ansible
 
 ### CentOS / Fedora
 ```
-$ yum install ansible
+$ yum install ansible    # or   dnf install ansible python2-dnf
 ```
 or
 ```
