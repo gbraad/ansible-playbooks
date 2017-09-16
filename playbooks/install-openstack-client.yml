@@ -7,7 +7,7 @@
 
   tasks:
   - name: Add 'Mitaka' release package (CentOS)
-    package: name="centos-release-openstack-mitaka" state=present
+    package: name="centos-release-openstack-pike" state=present
     when: >
         ansible_distribution == 'CentOS'
 
