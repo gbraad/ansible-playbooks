@@ -6,7 +6,7 @@
   become_method: sudo
 
   tasks:
-  - name: Add 'Mitaka' release package (CentOS)
+  - name: Add OpenStack release package (CentOS)
     package: name="centos-release-openstack-pike" state=present
     when: >
         ansible_distribution == 'CentOS'
